@@ -1,7 +1,6 @@
 /* Game manager for the Pong DEMO
 
-bruno Avendaño
-
+Natalia Rodriguez Guevara
 10/abr/24
 */
 
@@ -37,17 +36,18 @@ public class PongManager : MonoBehaviour
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.R) && ball != null){
-           Reset();
+            Reset();
         }
     }
 
-public void Reset(){
-    if (ball != null)
-    {
-        Destroy(ball);
-        InitGame();
+    public void Reset(){
+        // check that there is a ball
+        if (ball != null){
+            Destroy(ball);
+            InitGame();
+        }
     }
-}
+
     void InitGame(){
         StartCoroutine(ServeBall());
     }
@@ -68,6 +68,6 @@ public void Reset(){
             pointsRight++;
             scoreRight.text = pointsRight.ToString();
             InitGame();
-        }
-    }
+        }
+    }
 }
