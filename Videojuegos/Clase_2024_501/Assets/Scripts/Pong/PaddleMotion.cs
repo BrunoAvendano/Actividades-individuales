@@ -26,7 +26,7 @@ public class PaddleMotion : MonoBehaviour
         if (Input.GetKey(positiveKey) && transform.position.y < limit) {
             transform.Translate(direction * speed * Time.deltaTime);
         } 
-        else if (Input.GetKey(negativeKey)&& transform.position.y > -limit){
+       else if (Input.GetKey(negativeKey)&& transform.position.y > -limit){
             transform.Translate(-direction * speed * Time.deltaTime);
         }      
     }
