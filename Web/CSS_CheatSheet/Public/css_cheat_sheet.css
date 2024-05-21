@@ -1,0 +1,74 @@
+.border {
+    border: 2px solid black;
+}
+
+.border-parts {
+    border-left: 2px solid red;
+    border-right: 2px solid green;
+    border-top: 2px solid blue;
+    border-bottom: 2px solid yellow;
+}
+
+.border-radius {
+    border: 2px solid black;
+    border-radius: 25px;
+}
+
+.background-image {
+    background-image: url('https://th.bing.com/th/id/OIP.A4nEdhb3gbitvhu6SS4qrwHaEK?rs=1&pid=ImgDetMain');
+}
+
+.color {
+    color: red;
+}
+
+.font {
+    font: 1.5em Arial, sans-serif;
+}
+
+.font-family {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.font-style {
+    font-style: italic;
+}
+
+.font-weight {
+    font-weight: bold;
+}
+
+.width-height {
+    width: 200px;
+    height: 100px;
+}
+
+.list-style {
+    list-style: square inside none;
+}
+
+.margin {
+    margin: 10px;
+}
+
+.padding {
+    padding: 20px;
+}
+
+.overflow {
+    overflow: auto;
+}
+
+.display {
+    display: flex;
+}
+
+.position {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.filter {
+    filter: blur(5px);
+}
