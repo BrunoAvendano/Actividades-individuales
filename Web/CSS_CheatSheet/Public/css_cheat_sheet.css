@@ -1,3 +1,8 @@
+div {
+    margin: 10px;
+    border: 2px solid black;
+}
+
 .border {
     border: 2px solid black;
 }
@@ -15,7 +20,7 @@
 }
 
 .background-image {
-    background-image: url('https://th.bing.com/th/id/OIP.A4nEdhb3gbitvhu6SS4qrwHaEK?rs=1&pid=ImgDetMain');
+    background-image: url('https://getwallpapers.com/wallpaper/full/2/8/f/1039267-popular-death-proof-wallpaper-1920x1080.jpg');
 }
 
 .color {
@@ -45,10 +50,6 @@
 
 .list-style {
     list-style: square inside none;
-}
-
-.margin {
-    margin: 10px;
 }
 
 .padding {
