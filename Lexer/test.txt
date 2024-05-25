@@ -1,0 +1,14 @@
+def calcular(operacion, num1, num2):
+    if operacion == 'suma':
+        return num1 + num2
+    elif operacion == 'resta':
+        return num1 - num2
+    elif operacion == 'multiplicacion':
+        return num1 * num2
+    else:
+        return "Operación no reconocida"
+
+# Prueba de las operaciones
+print(calcular('suma', 5, 3))  # Resultado: 8
+print(calcular('resta', 5, 3))  # Resultado: 2
+print(calcular('multiplicacion', 5, 3))  # Resultado: 15
