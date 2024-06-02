@@ -173,7 +173,6 @@ INSERT INTO Colecciones_de_Jugadores (ID_Jugador, ID_Carta, Cantidad, Fecha_Agre
 (15, 15, 15, '2024-06-15');
 
 
--- Asegúrate de que los IDs 1 a 15 ya existen en la tabla 'Cartas'
 INSERT INTO Evoluciones (ID_Pokémon_Base, ID_Pokémon_Evolucionado) VALUES
 (1, 2),
 (2, 3),
