@@ -1,0 +1,193 @@
+-- Creación de la base de datos 'Pokemon_TCG'
+CREATE DATABASE IF NOT EXISTS Pokemon_TCG;
+USE Pokemon_TCG;
+
+-- Creación de la tabla 'Expansiones'
+CREATE TABLE Expansiones (
+    ID_Expansión INT AUTO_INCREMENT PRIMARY KEY,
+    Nombre VARCHAR(255) NOT NULL,
+    Fecha_Lanzamiento DATE
+);
+
+-- Creación de la tabla 'Sets'
+CREATE TABLE Sets (
+    ID_Set INT AUTO_INCREMENT PRIMARY KEY,
+    Nombre VARCHAR(255) NOT NULL,
+    ID_Expansión INT,
+    FOREIGN KEY (ID_Expansión) REFERENCES Expansiones(ID_Expansión)
+);
+
+-- Creación de la tabla 'Cartas'
+CREATE TABLE Cartas (
+    ID_Carta INT AUTO_INCREMENT PRIMARY KEY,
+    Nombre VARCHAR(255) NOT NULL,
+    Tipo VARCHAR(50),
+    Rareza VARCHAR(50),
+    ID_Expansión INT,
+    FOREIGN KEY (ID_Expansión) REFERENCES Expansiones(ID_Expansión)
+);
+
+-- Creación de la tabla 'Tipos de Energía'
+CREATE TABLE Tipos_de_Energía (
+    ID_Energía INT AUTO_INCREMENT PRIMARY KEY,
+    Nombre VARCHAR(255) NOT NULL
+);
+
+-- Creación de la tabla 'Jugadores'
+CREATE TABLE Jugadores (
+    ID_Jugador INT AUTO_INCREMENT PRIMARY KEY,
+    Nombre VARCHAR(255) NOT NULL,
+    Fecha_Nacimiento DATE,
+    Pais VARCHAR(255),
+    Puntos_Torneo INT
+);
+
+-- Creación de la tabla 'Colecciones de Jugadores'
+CREATE TABLE Colecciones_de_Jugadores (
+    ID_Coleccion INT AUTO_INCREMENT PRIMARY KEY,
+    ID_Jugador INT,
+    ID_Carta INT,
+    Cantidad INT,
+    Fecha_Agregada DATE,
+    FOREIGN KEY (ID_Jugador) REFERENCES Jugadores(ID_Jugador),
+    FOREIGN KEY (ID_Carta) REFERENCES Cartas(ID_Carta)
+);
+
+-- Creación de la tabla 'Evoluciones'
+CREATE TABLE Evoluciones (
+    ID_Evolución INT AUTO_INCREMENT PRIMARY KEY,
+    ID_Pokémon_Base INT,
+    ID_Pokémon_Evolucionado INT,
+    FOREIGN KEY (ID_Pokémon_Base) REFERENCES Cartas(ID_Carta),
+    FOREIGN KEY (ID_Pokémon_Evolucionado) REFERENCES Cartas(ID_Carta)
+);
+
+--Llenado de tablas
+
+-- Ejemplos para la tabla 'Expansiones'
+INSERT INTO Expansiones (Nombre, Fecha_Lanzamiento) VALUES
+('Expansión Alfa', '2024-01-01'),
+('Expansión Beta', '2024-02-01'),
+('Expansión Gamma', '2024-03-01'),
+('Expansión Delta', '2024-04-01'),
+('Expansión Epsilon', '2024-05-01'),
+('Expansión Zeta', '2024-06-01'),
+('Expansión Eta', '2024-07-01'),
+('Expansión Theta', '2024-08-01'),
+('Expansión Iota', '2024-09-01'),
+('Expansión Kappa', '2024-10-01'),
+('Expansión Lambda', '2024-11-01'),
+('Expansión Mu', '2024-12-01'),
+('Expansión Nu', '2025-01-01'),
+('Expansión Xi', '2025-02-01'),
+('Expansión Omicron', '2025-03-01');
+
+-- Ejemplos para la tabla 'Sets'
+INSERT INTO Sets (Nombre, ID_Expansión) VALUES
+('Set Primario', 1),
+('Set Secundario', 2),
+('Set Terciario', 3),
+('Set Cuaternario', 4),
+('Set Quinario', 5),
+('Set Senario', 6),
+('Set Septenario', 7),
+('Set Octonario', 8),
+('Set Novenario', 9),
+('Set Decenario', 10),
+('Set Undecenario', 11),
+('Set Duodecenario', 12),
+('Set Tredenario', 13),
+('Set Catorcenario', 14),
+('Set Quindecenario', 15);
+
+-- Ejemplos para la tabla 'Cartas'
+INSERT INTO Cartas (Nombre, Tipo, Rareza, ID_Expansión) VALUES
+('Pikachu', 'Eléctrico', 'Común', 1),
+('Charizard', 'Fuego', 'Raro', 2),
+('Bulbasaur', 'Planta', 'Común', 3),
+('Squirtle', 'Agua', 'Común', 4),
+('Mewtwo', 'Psíquico', 'Legendario', 5),
+('Eevee', 'Normal', 'Común', 6),
+('Snorlax', 'Normal', 'Raro', 7),
+('Gengar', 'Fantasma', 'Raro', 8),
+('Jigglypuff', 'Normal', 'Común', 9),
+('Dragonite', 'Dragón', 'Raro', 10),
+('Lugia', 'Psíquico', 'Legendario', 11),
+('Ho-Oh', 'Fuego', 'Legendario', 12),
+('Tyranitar', 'Roca', 'Raro', 13),
+('Sceptile', 'Planta', 'Raro', 14),
+('Blaziken', 'Fuego', 'Raro', 15);
+
+-- Ejemplos para la tabla 'Tipos de Energía'
+INSERT INTO Tipos_de_Energía (Nombre) VALUES
+('Energía Eléctrica'),
+('Energía de Fuego'),
+('Energía de Agua'),
+('Energía de Planta'),
+('Energía de Psíquico'),
+('Energía de Normal'),
+('Energía de Fantasma'),
+('Energía de Dragón'),
+('Energía de Roca'),
+('Energía de Hielo'),
+('Energía de Lucha'),
+('Energía de Veneno'),
+('Energía de Tierra'),
+('Energía de Volador'),
+('Energía de Acero');
+
+-- Ejemplos para la tabla 'Jugadores'
+INSERT INTO Jugadores (Nombre, Fecha_Nacimiento, Pais, Puntos_Torneo) VALUES
+('Juan Pérez', '2000-05-15', 'México', 1200),
+('Ana Gómez', '1995-08-20', 'México', 1500),
+('Luis Martínez', '1998-04-10', 'México', 1300),
+('Sofía Hernández', '2001-12-30', 'México', 1400),
+('Carlos López', '1997-07-25', 'México', 1100),
+('María Rodríguez', '1996-03-15', 'México', 1600),
+('Jorge Sánchez', '1999-09-09', 'México', 1700),
+('Laura Jiménez', '2002-06-18', 'México', 1800),
+('Óscar García', '1994-11-05', 'México', 1900),
+('Teresa Ramírez', '2003-01-22', 'México', 2000),
+('Daniel Torres', '1993-02-14', 'México', 2100),
+('Patricia Vázquez', '1992-10-30', 'México', 2200),
+('Miguel Ángel Ruiz', '1991-08-19', 'México', 2300),
+('Alejandra Mendoza', '1990-05-05', 'México', 2400),
+('Ricardo Hernández', '1989-03-28', 'México', 2500);
+
+-- Ejemplos para la tabla 'Colecciones de Jugadores'
+INSERT INTO Colecciones_de_Jugadores (ID_Jugador, ID_Carta, Cantidad, Fecha_Agregada) VALUES
+(1, 1, 5, '2024-06-01'),
+(2, 2, 3, '2024-06-02'),
+(3, 3, 2, '2024-06-03'),
+(4, 4, 4, '2024-06-04'),
+(5, 5, 1, '2024-06-05'),
+(6, 6, 7, '2024-06-06'),
+(7, 7, 6, '2024-06-07'),
+(8, 8, 8, '2024-06-08'),
+(9, 9, 9, '2024-06-09'),
+(10, 10, 10, '2024-06-10'),
+(11, 11, 11, '2024-06-11'),
+(12, 12, 12, '2024-06-12'),
+(13, 13, 13, '2024-06-13'),
+(14, 14, 14, '2024-06-14'),
+(15, 15, 15, '2024-06-15');
+
+
+-- Asegúrate de que los IDs 1 a 15 ya existen en la tabla 'Cartas'
+INSERT INTO Evoluciones (ID_Pokémon_Base, ID_Pokémon_Evolucionado) VALUES
+(1, 2),
+(2, 3),
+(3, 4),
+(4, 5),
+(5, 6),
+(6, 7),
+(7, 8),
+(8, 9),
+(9, 10),
+(10, 11),
+(11, 12),
+(12, 13),
+(13, 14),
+(14, 15),
+(15, 16);
+
